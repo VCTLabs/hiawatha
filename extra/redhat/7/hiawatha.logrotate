@@ -1,0 +1,9 @@
+/var/log/hiawatha/*.log {
+    missingok
+    notifempty
+    sharedscripts
+    delaycompress
+    postrotate
+        /bin/systemctl reload hiawatha.service > /dev/null 2>/dev/null || true
+    endscript
+}
