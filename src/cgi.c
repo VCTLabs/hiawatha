@@ -616,10 +616,6 @@ int send_fcgi_request(t_session *session, int sock) {
 		if (bytes_read == -1) {
 			return -1;
 		}
-
-		if (send_fcgi_buffer(&fcgi_buffer, NULL, 0) == -1) {
-			return -1;
-		}
 	}
 
 	/* Send zero-length STDIN record to indicate end of request
