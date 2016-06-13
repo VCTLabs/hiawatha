@@ -1348,6 +1348,14 @@ int handle_put_request(t_session *session) {
 			break;
 	}
 
+	/* If URI is mapped to CGI, destination is virtual not real file
+	 */
+	if (session->cgi_type != no_cgi) {
+		return execute_cgi(session);
+	}
+
+	/* If destination is not virtual, needs to be file not directory
+	 */
 	if (session->uri_is_dir) {
 		return 405;
 	}

@@ -897,7 +897,7 @@ no_websocket:
 		}
 	}
 
-	if (((session->request_method != PUT) && (session->request_method != DELETE)) || session->host->webdav_app) {
+	if ((session->request_method != DELETE) || session->host->webdav_app) {
 		check_target_is_cgi(session);
 	}
 
